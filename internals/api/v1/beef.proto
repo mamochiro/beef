@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package beef.service.v1;
+
+import "google/api/annotations.proto";
+import "protocGenSwagger/options/annotations.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "/.;notification_v1";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+  info: {
+    title: "Beef Service"
+    version: "1.0"
+    contact: {
+      name: "user"
+      url: "http://localhost:3002"
+      email: "sarawut.nawawisitkul@gmail.co.th""
+    }
+  }
+  schemes: [HTTP, HTTPS]
+  consumes: "application/json"
+  produces: "application/json"
+  responses: {
+    key: "404"
+    value: {
+      description: "Returned when the resource does not exist."
+      schema: {
+        json_schema: {
+          type: STRING
+        }
+      }
+    }
+  }
+};
+
+
+message BeefResponse {
+  map<string, int32> beef = 1;
+}
+
+
+service BeefService {
+  rpc Beef(google.protobuf.Empty) returns (BeefResponse) {
+    option (google.api.http) = {
+      get: "/beef/summary"
+    };
+  }
+}

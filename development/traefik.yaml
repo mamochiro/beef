@@ -1,0 +1,9 @@
+providers:
+  file:
+    filename: "/etc/traefik/traefik-dyn.yaml"
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"

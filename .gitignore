@@ -1,0 +1,11 @@
+bin
+.env
+.idea
+*.pb.go
+.vscode
+*.pb.gw.go
+*.swagger.json
+cmd/server/__debug_bin
+www/swagger.json
+tmp
+.air.toml
