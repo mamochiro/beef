@@ -15,7 +15,7 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
     contact: {
       name: "user"
       url: "http://localhost:3002"
-      email: "sarawut.nawawisitkul@gmail.co.th""
+      email: "sarawut.nawawisitkul@gmail.co.th"
     }
   }
   schemes: [HTTP, HTTPS]

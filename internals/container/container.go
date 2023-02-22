@@ -7,7 +7,6 @@ import (
 	"github.com/mamochiro/beef/internals/service/beef"
 	"net/http"
 
-	"git.robodev.co/imp/shared-utility/validator"
 	"github.com/mamochiro/beef/internals/config"
 	"github.com/mamochiro/beef/internals/controller"
 	beefCtrl "github.com/mamochiro/beef/internals/controller/beef"
@@ -38,7 +37,6 @@ func (c *Container) Configure() error {
 		jaeger.NewJaeger,
 		logrus.NewLog,
 		controller.NewHealthZController,
-		validator.NewCustomValidator,
 		postgres.NewRepository,
 		utils.NewUtils,
 		utils.NewCustomValidator,
@@ -61,7 +59,7 @@ func (c *Container) Configure() error {
 func (c *Container) Start() error {
 	fmt.Println("Start Container")
 
-	if err := c.container.Invoke(func(s *grpcServer.Server, h *httpServer.Server, v *validator.CustomValidator) {
+	if err := c.container.Invoke(func(s *grpcServer.Server, h *httpServer.Server) {
 		go func() {
 			_ = h.Start()
 		}()

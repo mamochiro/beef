@@ -1,8 +1,6 @@
 package grpcserver
 
 import (
-	grpcErrors "git.robodev.co/imp/shared-utility/grpc_errors"
-	validatorUtils "git.robodev.co/imp/shared-utility/validator"
 	"github.com/mamochiro/beef/internals/controller"
 	"github.com/mamochiro/beef/internals/controller/beef"
 	apiV1 "github.com/mamochiro/beef/pkg/api/v1"
@@ -28,13 +26,9 @@ func (s *Server) Configure() {
 func NewServer(
 	config config.Configuration,
 	healthCtrl *controller.HealthZController,
-	validator *validatorUtils.CustomValidator,
 	beefCtrl *beef.Controller,
 ) *Server {
-	option := grpc.ChainUnaryInterceptor(
-		grpcErrors.UnaryServerInterceptor(),
-		validatorUtils.UnaryServerInterceptor(validator),
-	)
+	option := grpc.ChainUnaryInterceptor()
 
 	s := &Server{
 		Server:     grpc.NewServer(option, grpc.MaxRecvMsgSize(10*10e6), grpc.MaxSendMsgSize(10*10e6)),

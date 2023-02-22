@@ -3,7 +3,6 @@ module github.com/mamochiro/beef
 go 1.19
 
 require (
-	git.robodev.co/imp/shared-utility v0.0.19
 	github.com/caarlos0/env/v7 v7.0.0
 	github.com/go-playground/locales v0.13.0
 	github.com/go-playground/universal-translator v0.17.0
