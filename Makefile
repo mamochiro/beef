@@ -15,9 +15,9 @@ watch:
 ## pbgen: genrate protobug file
 .PHONY: pbgen
 pbgen:
-	protoc --proto_path=internals/api/v1 --proto_path=thirdparty --go_out=plugins=grpc:pkg/api/v1 --grpc-gateway_out=logtostderr=true:pkg/api/v1 --openapiv2_out=logtostderr=true:swagger beef.proto
+	protoc --proto_path=internals/api/v1 --proto_path=thirdParty --go_out=plugins=grpc:pkg/api/v1 --grpc-gateway_out=logtostderr=true:pkg/api/v1 --openapiv2_out=logtostderr=true:swagger beef.proto
 	protoc --proto_path=internals/api/v1 \
-	--proto_path=thirdparty \
+	--proto_path=thirdParty \
 	--go_out=plugins=grpc:pkg/api/v1 \
 	--grpc-gateway_out=logtostderr=true:pkg/api/v1 \
 	--openapiv2_out=logtostderr=true,allow_merge=true,json_names_for_fields=false:www \

@@ -3,12 +3,12 @@ syntax = "proto3";
 package beef.service.v1;
 
 import "google/api/annotations.proto";
-import "protocGenSwagger/options/annotations.proto";
+import "grpc/gateway/protoc_gen_openapiv2/options/annotations.proto";
 import "google/protobuf/empty.proto";
 
-option go_package = "/.;notification_v1";
+option go_package = "/.;beef_v1";
 
-option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     title: "Beef Service"
     version: "1.0"
